@@ -1,0 +1,22 @@
+  
+  <% current_user.albums.each do |album|%>
+
+  <table>
+ 
+    <tr>
+      <th>:album title</th>
+      <th><%= album.title%></th>
+      <th>:album name</th> <th><%= album.discription%></th>
+      </tr>
+      <tr>
+      <td><%= link_to 'upload photo',  new_user_album_photo_path(current_user, album, @photo) %></td>
+      <td><%#= link_to image_tag(album.photos.first.image.url,:width =>100),user_album_photos_path(current_user, album, @photo) %></td>
+       <td><%= link_to image_tag("folder.jpg",:width =>100),user_album_photos_path(current_user, album, @photo) %></td>
+
+      <%#= @album.photos.count %>
+      <td><%= link_to 'create album',  new_user_album_path(current_user, @album) %></td>
+      <td><%= link_to 'Destroy',  user_album_path(current_user,album),
+                    method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </table>
+ <% end %>
+      

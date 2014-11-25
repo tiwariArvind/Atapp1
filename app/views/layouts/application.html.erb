@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= (yield(:title)) %></title>
+    <%= stylesheet_link_tag "application", media: "all",
+                                           "data-turbolinks-track" => true %>
+    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+    <%= csrf_meta_tags %>  
+   </head>
+   <body>
+    <% if current_user.nil? %>
+    <%= link_to "login", signin_path %><br>
+    <%= link_to "signup",signup_path %><br>
+    <% else %>
+    <%= link_to "Sign out", signout_path %><br>
+    <%= link_to 'profile', user_path(current_user) %>   
+    <%= link_to 'all events',user_events_path(current_user) %>
+     <%#= link_to 'all comments', user_event_comments_path(current_user,@event,@comment = Comment.all)%>
+     <%#= link_to 'All comment', user_event_comments_path(current_user) %>
+     <%= link_to 'event create',new_user_event_path(current_user) %>
+     <%= link_to 'album',  new_user_album_path(current_user) %>
+     <%= link_to 'album gallary', user_albums_path(current_user)  %>
+
+
+     
+     <%#= link_to 'album',user_album_photos_path(current_user,@albums,@photo=Photo.all)%>
+     <%#= link_to 'Album', user_album_photos_path(current_user, album, @photo) %>
+
+     
+
+
+
+   <% end %>
+
+   <%# if current_user.nil? %>
+
+    <%#= link_to 'signup', signup_path %>
+   <%#= link_to 'login', signin_path %> </p>
+
+   <%#else %>
+
+   <%#= link_to 'profile', user_path(current_user) %> 
+   <%#= link_to 'all events',user_events_path(current_user,@event) %>
+  <%#= link_to 'Add comment', new_user_event_comment_path(current_user, @event, @comment) %>
+
+    <%#= link_to 'logout', signout_path %>  
+
+  <%#end%>
+   <%= yield %>
+   </div>
+
+  <% flash.each do |name, msg| %>
+  <%= content_tag :div, msg %>
+  <% end %>
+
+  </body>
+</html>
+
+
+
+    
+   

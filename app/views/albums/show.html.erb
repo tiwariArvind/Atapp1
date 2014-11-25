@@ -1,0 +1,16 @@
+<p>
+  <strong>title:</strong>
+  <%= @album.title %>
+  </p>
+ 
+  <p>
+  <strong>discription:</strong>
+  <%= @album.discription %>
+  </p>
+
+ <%= link_to 'Add photo',  new_user_album_photo_path(current_user, @album, @photo) %>
+ <%= link_to 'All photos', user_album_photos_path(current_user, @album, @photo) %>
+ <%#= link_to image_tag("@image.first", :width =>40, :height =>40),user_album_photos_path(current_user, @album, @photo)  %>
+
+
+

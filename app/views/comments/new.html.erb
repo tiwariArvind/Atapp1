@@ -1,0 +1,13 @@
+<%= form_for ([@user,@event,@comment]), url: user_event_comments_path do |f| %>
+	<p>
+    <%= f.label :text %><br>
+    <%= f.text_field :text %>
+    </p>
+ 
+    <p>
+    <%= f.submit %>
+    </p>
+
+  <% end %>
+
+ 

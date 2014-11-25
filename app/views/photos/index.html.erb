@@ -1,0 +1,17 @@
+
+   <%= link_to 'Back', user_albums_path(current_user,@album) %>
+
+   <div>
+   <% @photos.each do |photo|%>
+   <%= link_to image_tag(photo.image_url, :width =>200), user_album_photo_path(current_user,@album,photo)%>
+   <td><%= link_to 'Delete', user_album_photo_path(current_user,@album,photo),
+                    method: :delete, data: { confirm: 'Are you sure?' } %></td>
+   <td><%= link_to 'edit', edit_user_album_photo_path(current_user,@album,photo)
+                    %></td>
+
+   </div>
+
+<%#= link_to image_tag("images.png",:width =>100),user_album_photos_path(current_user, album, @photo) %>
+<%#= image_tag(@user.photo_url, :width => 100) if @user.photo.present? %>
+  <%end%>
+

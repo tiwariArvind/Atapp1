@@ -1,0 +1,29 @@
+<h1>Listing events</h1>
+
+<%= link_to 'Back', users_path %>
+<%=current_user.email%>
+<table>
+<thead>
+<tr>
+    <td><h4>Event Name </td><h4>
+    <td><h4>Event discription</td></h4> 
+    <td><h4>You Can </td></h4>
+    </tr>
+</thead>
+<tbody>
+ <table>
+  <% current_user.events.each do |event| %>
+    <tr>
+    <td><%= event.name %></td>
+    <td><%= event.discription %></td>
+    <td><%= link_to 'Add comment', new_user_event_comment_path(current_user, event, @comment = Comment.new) %></td>
+    <td><%= link_to 'all comments',  user_event_comments_path(current_user,event)%></td>
+    <td><%= link_to 'show', user_event_path(current_user, event) %></td>
+    <td><%= link_to 'edit', edit_user_event_path(current_user,event) %></td>
+    <td><%= link_to 'Destroy', user_event_path(current_user,event),
+                    method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+   <% end %>
+   </tbody>
+   </table>
+

@@ -1,0 +1,34 @@
+<%= form_for ([@user,@event]), url: user_events_path do |f| %>
+<% if @event.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@event.errors.count, "error") %> prohibited this post from being saved:</h2>
+ 
+    <ul>
+    <% @event.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+   <p>
+    <%= f.label :name %><br>
+    <%= f.text_field :name%>
+   </p>
+ 
+   <p>
+   <%= f.label :discription %><br>
+   <%= f.text_field :discription %>
+   </p>
+
+   <p>
+    <%= f.label :published_on %><br>
+    <%= f.date_select :published_on%>
+   </p>
+
+   <p>
+    <%= f.select :user_ids, User.all.collect {|x| [x.name,x.id]}, {}, :multiple => true %>
+    <%= f.submit %>
+   </p>
+
+  <%end%>

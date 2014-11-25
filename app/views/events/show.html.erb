@@ -1,0 +1,21 @@
+
+
+ 
+  <p>
+  <strong>name:</strong>
+  <%= @event.name %>
+  </p>
+ 
+  <p>
+  <strong>discription:</strong>
+  <%= @event.discription %>
+  </p>
+
+  <p>
+  <strong>published_on</strong>
+  <%= @event.published_on%>
+  </p>
+
+
+ <%= link_to 'Add comment', new_user_event_comment_path(current_user, @event, @comment) %>
+ 

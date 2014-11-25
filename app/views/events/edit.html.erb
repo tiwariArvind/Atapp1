@@ -1,0 +1,15 @@
+<%= form_for :event, url:  user_event_path(current_user,@event), method: :patch do |f| %>
+   <p>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+   </p>
+ 
+    <p>
+    <%= f.label :discription %><br>
+    <%= f.text_field :discription %>
+    </p>
+
+    <p>
+    <%= f.submit %>
+    </p>
+   <% end %>

@@ -1,0 +1,30 @@
+
+      <table>
+      <thead>
+      <tr>
+      <td><b>Event Name </td></b>
+      <td><b>Event discription</td></b>
+      </tr>
+      </thead>
+      </table>
+        
+       <tr>
+       <td><%= @event.name %></td>
+       <td><%= @event.discription %></td>   
+       </tr>
+       <tr><br>
+       <th><b>:comment</th></b>
+       <%@event.comments.each do |comment| %><br>
+       <td><%=comment.text %></td><br>
+       <td><%= link_to 'Destroy', user_event_comments_path(current_user,@event), method: :delete, data: { confirm: 'Are you sure?' } %></td><br>
+       </tr>
+	   </table>
+       <%end%>
+       <td><%= link_to 'Add comment', new_user_event_comment_path(current_user, @event, @comment = Comment.new) %></td>
+
+  
+     
+       
+       
+      
+

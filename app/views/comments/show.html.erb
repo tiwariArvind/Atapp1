@@ -1,0 +1,13 @@
+
+  <b>Name:</b> <b>discription:</b><br> <%= @event.name%>
+   <%=@event.discription%></br>
+    <b>:comment</b><br>
+   	<td><%= @comment.text %></td><br>
+
+  
+
+ <%= link_to 'Back', user_events_path(current_user,@event)%>
+ <%= link_to 'all comments',  user_event_comments_path(current_user,@event)%>
+
+ 
+

@@ -1,0 +1,23 @@
+<%= form_for :user, url: user_path(@user), method: :patch do |f| %>
+<p>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </p>
+ 
+  <p>
+    <%= f.label :email %><br>
+    <%= f.email_field :email %>
+  </p>
+  <p>
+    <%= f.label :photo %><br>
+    <%= f.file_field :photo %>
+  </p>
+
+
+
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+ 
+<%= link_to 'Back', users_path %>

@@ -1,0 +1,6 @@
+<%= form_for ([@user,@album,@photo]), url: user_album_photo_path do |f| %>
+ <%= f.file_field :image %>
+    <p>
+    <%= f.submit %>
+   </p>
+   <% end%>

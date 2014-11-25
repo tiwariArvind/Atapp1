@@ -1,0 +1,19 @@
+<h1>Listing users</h1>
+
+<table>
+  <tr>
+    <th>name </th>
+    <%= current_user.name %>
+    <th>email</th>
+    <%= current_user.email %>
+  </tr>
+		<tr>
+         <td><%= link_to 'edit', edit_user_path(current_user) %></td>
+         <td><%= link_to 'show', user_path(current_user) %></td>
+         <td><%= link_to 'Destroy', user_path(current_user),
+                    method: :delete, data: { confirm: 'Are you sure?' } %></td>
+		 </tr>
+        </table>
+
+
+

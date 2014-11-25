@@ -1,0 +1,18 @@
+<%= form_for ([@user,@album]), url: user_albums_path do |f| %>
+  
+ <p>
+    <%= f.label :title %><br>
+    <%= f.text_field :title%>
+   </p> 
+
+   <p>
+    <%= f.label :discription %><br>
+    <%= f.text_field :discription%>
+   </p> 
+
+  
+   <%= f.submit %>
+<%end%>
+
+
+
